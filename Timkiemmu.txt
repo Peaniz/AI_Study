@@ -1,0 +1,16 @@
+Không gian trạng thái
+V - tập đỉnh/tập tất cả các trạng thái
+E - tập cạnh/tập cung/ tập toán tử
+S - trạng thái đầu
+G - trạng thái đích
+
+Blind search:
++ Tìm kiếm theo chiều rộng: từ trên xuống
+Phát triển trạng thái gần với trạng thái hiện tại
+-> 3 khu vực: explored, frontier, unexplored
+Breath-First-Search(BFS) + Depth-First-Search(DFS):
+O(V+E) với V: số đỉnh đi qua ít nhất 1 lần, edge: số cạnh đã đi qua
+
+Đối với BFS luôn tìm được nghiệm (nếu bài toán có nghiệm)
+Đối với DFS chỉ tìm được nghiệm( nếu không gian hữu hạn), vì nếu không gian tìm kiếm vô hạn, 
+thì thuật toán tìm kiếm theo chiều sâu chọn nhánh để đi, nếu đi đúng nhánh vô hạn mà nghiệm không nằm trên nhánh đó.

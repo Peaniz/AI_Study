@@ -1,0 +1,38 @@
+**Thuật toán MiniMax** và **Alpha-Beta Pruning** là hai thuật toán quan trọng trong lĩnh vực trí tuệ nhân tạo, đặc biệt là trong các trò chơi có hai người chơi đối kháng, chẳng hạn như cờ vua, cờ caro, hoặc các trò chơi chiến thuật. Dưới đây là một số ứng dụng phổ biến của hai thuật toán này:
+
+### 1. **MiniMax Algorithm**:
+
+#### Mô tả:
+Thuật toán MiniMax được sử dụng để tìm ra chiến lược tối ưu trong các trò chơi đối kháng (game theory). Trong đó, hai người chơi (minimizing và maximizing player) lần lượt chọn các nước đi. Mục tiêu của **Maximizing Player** là tối đa hóa điểm số, trong khi **Minimizing Player** muốn giảm thiểu điểm số của đối thủ.
+
+#### Ứng dụng:
+- **Cờ vua và cờ tướng**: Thuật toán MiniMax có thể giúp tính toán các nước đi tối ưu trong các trò chơi này bằng cách đánh giá tất cả các tình huống có thể xảy ra từ vị trí hiện tại, và chọn nước đi mang lại lợi thế lớn nhất cho người chơi.
+- **Cờ caro**: Giống như cờ vua, MiniMax có thể được sử dụng để tính toán các nước đi tốt nhất trong trò chơi cờ caro (Tic-Tac-Toe).
+- **Trò chơi số học và chiến thuật đơn giản**: MiniMax cũng có thể được áp dụng trong các trò chơi như trò chơi "nim", "Connect Four", hoặc "Checkers" (cờ vua Mỹ).
+- **Ứng dụng trong AI game**: Trong các trò chơi có đối kháng, MiniMax giúp máy tính "chơi" theo cách tối ưu, dự đoán nước đi của đối thủ và đưa ra quyết định dựa trên các nước đi có thể xảy ra.
+
+---
+
+### 2. **Alpha-Beta Pruning**:
+
+#### Mô tả:
+Alpha-Beta Pruning là một cải tiến của thuật toán MiniMax. Thuật toán này giúp giảm số lượng các nhánh cần kiểm tra khi tìm kiếm trong cây trò chơi, từ đó giảm thiểu thời gian tính toán. Thuật toán này dựa trên hai giá trị **alpha** và **beta**:
+- **Alpha** là giá trị tối đa mà Maximizing Player có thể đạt được.
+- **Beta** là giá trị tối thiểu mà Minimizing Player có thể đạt được.
+Khi một nhánh của cây trò chơi không còn khả năng tốt hơn một nhánh đã được xét, Alpha-Beta Pruning sẽ cắt bỏ nhánh đó (pruning).
+
+#### Ứng dụng:
+- **Cải tiến các trò chơi đối kháng (chẳng hạn cờ vua, cờ tướng)**: Alpha-Beta Pruning giúp giảm đáng kể số lượng nhánh trong cây MiniMax, do đó thuật toán có thể chạy nhanh hơn rất nhiều. Điều này rất quan trọng trong các trò chơi có không gian tìm kiếm rộng lớn như cờ vua.
+- **Cờ caro và các trò chơi đơn giản hơn**: Alpha-Beta Pruning có thể được sử dụng để cải thiện hiệu suất của MiniMax trong các trò chơi đơn giản như cờ caro (Tic-Tac-Toe) và các trò chơi tương tự.
+- **AI trong các trò chơi chiến lược thời gian thực**: Alpha-Beta giúp máy tính nhanh chóng tính toán các quyết định chiến lược trong các trò chơi yêu cầu quyết định trong thời gian ngắn.
+- **Trò chơi chiến thuật hai người chơi (two-player games)**: Các trò chơi đối kháng như "Checkers", "Go", "Connect Four" đều có thể được cải thiện hiệu suất với Alpha-Beta Pruning, giúp tính toán các nước đi nhanh hơn.
+
+---
+
+### Tóm tắt sự khác biệt giữa MiniMax và Alpha-Beta Pruning:
+
+- **MiniMax** sẽ kiểm tra tất cả các nhánh trong cây trò chơi để tìm ra nước đi tốt nhất, điều này có thể gây ra độ phức tạp tính toán rất lớn đối với các trò chơi có không gian tìm kiếm lớn.
+- **Alpha-Beta Pruning** cải tiến MiniMax bằng cách loại bỏ một số nhánh không cần thiết trong quá trình tìm kiếm, giúp giảm độ phức tạp và tăng tốc độ tính toán mà không làm giảm chất lượng của kết quả.
+
+### Kết luận:
+Cả MiniMax và Alpha-Beta Pruning đều rất quan trọng trong việc phát triển AI cho các trò chơi chiến lược, giúp máy tính có thể đưa ra các quyết định tối ưu trong một khoảng thời gian hạn chế. Alpha-Beta Pruning là một cải tiến hữu ích giúp thuật toán MiniMax hoạt động hiệu quả hơn, đặc biệt trong các trò chơi phức tạp.
