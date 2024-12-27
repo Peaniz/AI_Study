@@ -1,0 +1,69 @@
+GIẢI THÍCH THUẬT TOÁN NEURAL NETWORK
+
+1. Cấu trúc mạng Neural Network:
+- Là mạng neural nhiều lớp (Multi-Layer Perceptron)
+- Gồm: lớp đầu vào, các lớp ẩn, lớp đầu ra
+- Mỗi lớp có nhiều node (neuron)
+- Các lớp được kết nối đầy đủ (fully connected)
+
+2. Các thành phần chính:
+a) Trọng số (Weights):
+- Ma trận W[l] cho mỗi lớp l
+- Mỗi hàng của W[l] chứa trọng số cho một node ở lớp l
+- Cột đầu tiên là bias
+
+b) Hàm kích hoạt:
+- Sigmoid: f(z) = 1/(1 + e^(-z))
+- Đạo hàm: f'(z) = f(z)(1 - f(z))
+
+c) Hàm mất mát:
+- Cross-entropy: L = -Σ(y*log(a) + (1-y)*log(1-a))
+- Trong đó: a là đầu ra dự đoán, y là nhãn thực
+
+3. Quá trình Forward Propagation:
+- Input: x
+- Với mỗi lớp l:
+  + z[l] = W[l] × a[l-1]
+  + a[l] = sigmoid(z[l])
+  + Thêm bias a₀ = 1 cho các lớp ẩn
+- Output: a[L] (lớp cuối)
+
+4. Quá trình Backpropagation:
+- Tính gradient cho lớp cuối:
+  + δ[L] = a[L] - y
+- Với các lớp l từ cuối về:
+  + δ[l] = (W[l+1]ᵀ × δ[l+1]) ⊙ sigmoid'(z[l])
+  + ∇W[l] = δ[l] × a[l-1]ᵀ
+
+5. Cập nhật trọng số:
+- Mini-batch SGD
+- W[l] = W[l] - η × ∇W[l]
+Trong đó:
+- η: learning rate
+- ∇W[l]: gradient trung bình của batch
+
+6. Quy trình huấn luyện:
+a) Khởi tạo:
+- Khởi tạo ngẫu nhiên trọng số
+- Định nghĩa hyperparameters
+
+b) Training:
+- Chia dữ liệu thành mini-batches
+- Với mỗi epoch:
+  + Với mỗi batch:
+    * Forward propagation
+    * Backpropagation
+    * Cập nhật trọng số
+  + Tính loss và đánh giá
+
+7. Đặc điểm quan trọng:
+- Kiểm tra gradient (gradient checking)
+- Theo dõi loss function
+- Đánh giá độ chính xác
+- Khả năng xử lý phi tuyến tính
+
+8. Cải tiến trong code:
+- Vectorization toàn bộ
+- Mini-batch processing
+- Gradient checking
+- Cross-entropy loss 

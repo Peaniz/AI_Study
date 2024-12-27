@@ -1,0 +1,35 @@
+GIẢI THÍCH THUẬT TOÁN HỒI QUY TUYẾN TÍNH DÙNG MA TRẬN (VECTORIZED SGD)
+
+1. Biểu diễn ma trận:
+- X̄ = [x 1]: ma trận đầu vào mở rộng
+- θ = [w b]ᵀ: vector tham số
+- y: giá trị thực tế
+
+2. Phương trình hồi quy dạng ma trận:
+ŷ = X̄θ = xw + b
+
+3. Hàm mất mát:
+L(θ) = (ŷ - y)² = (X̄θ - y)²
+
+4. Gradient vector:
+∇L(θ) = 2X̄ᵀ(X̄θ - y)
+
+5. Cập nhật tham số:
+θ = θ - α∇L(θ)
+
+6. Quy trình thuật toán:
+- Khởi tạo θ = [w b]ᵀ ngẫu nhiên
+- Lặp qua max_epoch lần:
+  + Với mỗi mẫu i:
+    * Tính ŷ = X̄ᵢθ
+    * Tính loss = (ŷ - yᵢ)²
+    * Tính gradient: ∇L(θ) = 2X̄ᵢᵀ(ŷ - yᵢ)
+    * Cập nhật: θ = θ - α∇L(θ)
+
+Ưu điểm:
+- Code ngắn gọn hơn dùng ma trận
+- Tốc độ tính toán nhanh hơn
+- Dễ mở rộng cho nhiều features
+
+Nhược điểm:
+- Vẫn có nhược điểm của SGD 

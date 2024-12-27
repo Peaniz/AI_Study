@@ -1,0 +1,46 @@
+GIẢI THÍCH THUẬT TOÁN GRADIENT DESCENT CHO HỒI QUY ĐA BIẾN
+
+1. Mô hình toán học:
+y = θ₀ + θ₁x₁ + θ₂x₂ + ... + θₙxₙ
+
+2. Dạng ma trận:
+- X̄ = [1 x₁ x₂ ... xₙ]: ma trận đầu vào mở rộng
+- θ = [θ₀ θ₁ θ₂ ... θₙ]ᵀ: vector tham số
+- y: vector giá trị thực
+- ŷ = X̄θ: vector dự đoán
+
+3. Hàm mất mát (MSE):
+L(θ) = (1/N)Σᵢ(ŷᵢ - yᵢ)²
+     = (1/N)(X̄θ - y)ᵀ(X̄θ - y)
+
+4. Gradient vector:
+∇L(θ) = (2/N)X̄ᵀ(X̄θ - y)
+
+5. Chuẩn hóa dữ liệu:
+x_norm = (x - μ)/(max - min)
+Trong đó:
+- μ: giá trị trung bình của feature
+- max, min: giá trị lớn nhất và nhỏ nhất
+
+6. Quy trình thuật toán:
+- Chuẩn hóa dữ liệu
+- Khởi tạo θ ngẫu nhiên
+- Lặp qua epochs_max lần:
+  + Tính ŷ = X̄θ
+  + Tính loss = (1/N)Σᵢ(ŷᵢ - yᵢ)²
+  + Tính gradient: ∇L(θ)
+  + Cập nhật: θ = θ - α∇L(θ)
+
+7. Đánh giá mô hình:
+R² = 1 - Σᵢ(yᵢ - ŷᵢ)²/Σᵢ(yᵢ - ȳ)²
+Trong đó ȳ là giá trị trung bình của y
+
+Ưu điểm:
+- Xử lý được nhiều features
+- Hiệu quả với dữ liệu lớn
+- Dễ thêm regularization
+
+Nhược điểm:
+- Cần chuẩn hóa dữ liệu
+- Nhạy cảm với outliers
+- Giả định quan hệ tuyến tính 

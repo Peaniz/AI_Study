@@ -1,0 +1,38 @@
+GIẢI THÍCH THUẬT TOÁN HỒI QUY TUYẾN TÍNH VỚI STOCHASTIC GRADIENT DESCENT (SGD)
+
+1. Mô hình toán học:
+- Phương trình hồi quy: y = wx + b
+- Trong đó: 
+  + y: biến phụ thuộc (giá nhà)
+  + x: biến độc lập (diện tích)
+  + w, b: tham số cần tối ưu
+
+2. Hàm mất mát (Loss function):
+- Cho một mẫu (xi, yi):
+  L(w,b) = (y_hat - yi)² = (wxi + b - yi)²
+
+3. Gradient descent cho một mẫu:
+- Đạo hàm theo w: ∂L/∂w = 2xi(wxi + b - yi)
+- Đạo hàm theo b: ∂L/∂b = 2(wxi + b - yi)
+
+4. Cập nhật tham số:
+- w = w - α * ∂L/∂w
+- b = b - α * ∂L/∂b
+Trong đó α là learning rate
+
+5. Quy trình thuật toán:
+- Khởi tạo w, b ngẫu nhiên
+- Lặp qua max_epoch lần:
+  + Với mỗi epoch, lặp qua từng mẫu (xi, yi):
+    * Tính y_hat = wxi + b
+    * Tính loss = (y_hat - yi)²
+    * Tính gradient và cập nhật w, b
+
+Ưu điểm:
+- Cập nhật tham số thường xuyên
+- Có thể thoát khỏi local minimum
+- Phù hợp với dữ liệu lớn
+
+Nhược điểm:
+- Dao động mạnh
+- Khó hội tụ chính xác 

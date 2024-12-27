@@ -1,0 +1,66 @@
+GIẢI THÍCH THUẬT TOÁN PERCEPTRON
+
+1. Định nghĩa Perceptron:
+- Là mô hình neural network đơn giản nhất
+- Mô phỏng cách thức hoạt động của neuron sinh học
+- Dùng cho bài toán phân loại nhị phân (binary classification)
+
+2. Cấu trúc toán học:
+a) Đầu vào:
+- x: vector đặc trưng (features)
+- w: vector trọng số (weights)
+- b: độ lệch (bias)
+
+b) Hàm kích hoạt (activation function):
+f(z) = sign(z) = {
+   1  nếu z ≥ 0
+  -1  nếu z < 0
+}
+Trong đó: z = w^T × x + b
+
+3. Quy tắc học:
+- Nếu dự đoán đúng: không cập nhật trọng số
+- Nếu dự đoán sai: 
+  + w = w + α × y × x
+  + b = b + α × y
+Trong đó:
+  - α: learning rate
+  - y: nhãn thực tế (-1 hoặc 1)
+
+4. Thuật toán chi tiết:
+- Khởi tạo w, b ngẫu nhiên
+- Lặp qua số epoch:
+  + Với mỗi mẫu (x, y):
+    * Tính z = w^T × x + b
+    * Dự đoán ŷ = sign(z)
+    * Nếu ŷ ≠ y:
+      - Cập nhật w và b
+    * Tính loss để theo dõi hội tụ
+
+5. Đặc điểm quan trọng:
+- Chỉ hội tụ khi dữ liệu linearly separable
+- Đường bi��n phân chia (hyperplane): w^T × x + b = 0
+- Loss function không khả vi (non-differentiable)
+- Có thể dùng mini-batch và vectorization để tối ưu
+
+6. Ưu điểm:
+- Đơn giản, dễ hiểu
+- Nhanh trong training và inference
+- Cơ sở cho neural network hiện đại
+
+7. Nhược điểm:
+- Chỉ giải quyết được bài toán tuyến tính
+- Không hoạt động với dữ liệu không linearly separable
+- Nhạy cảm với nhiễu và outliers
+
+8. Cải tiến trong code:
+- Dùng vectorization để tính toán nhanh
+- Áp dụng mini-batch để cập nhật ổn định
+- Theo dõi loss để đánh giá hội tụ
+- Chuẩn hóa dữ liệu để tăng độ ổn định
+
+9. So sánh với Linear Regression:
+- Perceptron: phân loại nhị phân
+- Linear Regression: dự đoán giá trị liên tục
+- Perceptron dùng hàm sign, Linear Regression dùng hàm tuyến tính
+- Cả hai đều là mô hình tuyến tính 
